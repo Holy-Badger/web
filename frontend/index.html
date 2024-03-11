@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form">
+        <input type="text" id="form_post_title" placeholder="Enter title" >
+        <textarea id="form_post_body" placeholder="Enter content" ></textarea>
+        <button type="submit" id="form_button">Create</button>
+    </form>
+    <div class="post_list"></div>
+</body>
+
+</html>
+<script src="script.js"></script>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        /* sjustify-content: center; */
+        align-items: center;
+        row-gap: 20px;
+    }
+
+    #form {
+        width: 600px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        padding: 20px 30px;
+        border-radius: 30px;
+        background-color: green;
+        border: ridge;
+        border-width: 10px;
+        border-color: greenyellow;
+    }
+
+    ::placeholder {
+        color: blueviolet;
+    }
+
+    #form #form_button {
+        background-color: powderblue;
+        color: tomato;
+    }
+
+    .post_list{
+        display: flex;
+        width: 600px;
+        flex-direction: column;
+        row-gap: 10px;
+        padding: 10px;
+        border: 2px solid black;
+        position: relative;
+    }
+    .post_item{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        padding: 10px;
+        border: 2px dotted blue;
+    }
+
+    .post_item_title{
+        display:    flex;
+        font-size: 1.5rem;
+    }
+    .post_item_body{
+        display:    flex;
+        font-size: 1.1rem;
+
+    }   
+</style>
