@@ -3,6 +3,9 @@ const app = express()
 const cors = require('cors')
 const port = 3000
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 app.use(cors({
   origin: ['http://127.0.0.1:5500']
 }))
@@ -14,9 +17,10 @@ app.get('/posts', (req, res) => {
 })
 
 app.post('/posts', (req, res) => {
+  console.log(req.body);
   const { title, body } = req.body
   const id = posts.length + 1
-  posts.unshift((title, body), id)
+  posts.unshift({title, body, id})
   res.send({ title, body, id })
 })
 

@@ -2,13 +2,24 @@ window.onload = fetchPosts();
 let posts = [];
 const post_list = document.querySelector(".post_list");
 
-document.querySelector("#form").addEventListener("submit", (event) => {
+document.querySelector("#form").addEventListener("submit", async (event) => {
     event.preventDefault();
     const title = document.querySelector('#form_post_title').value;
     const body = document.querySelector('#form_post_body').value;
-    const id = posts.length + 1;
-    posts.unshift({title, body, id})
-    addPost({title, body, id});
+    // const id = posts.length + 1;
+    const response = await fetch("http://localhost:3000/posts", {
+        method : 'POST',
+        headers : {
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body : JSON.stringify({title, body})
+    } )
+    const result = await response.json()
+
+    console.log(result);
+    
+    posts.unshift(result)
+    addPost(result);
 });
 
 
